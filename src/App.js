@@ -9,11 +9,11 @@ import SingleCard from './Components /ourCard';
 
 const cardImage = [
 
-  {src: require('./Assests/helmet-1.png'),link:'./Assests/helmet-1.png'},
-  {src: require('./Assests/potion-1.png'),link:'./Assests/potion-1.png'},
-  {src: require('./Assests/ring-1.png'),link:'./Assests/ring-1.png'},
-  {src: require('./Assests/shield-1.png'),link:'./Assests/shield-1.png'},
-  {src: require('./Assests/sword-1.png'),link:'./Assests/sword-1.png'},
+  {src: require('./Assests/helmet-1.png'),link:'./Assests/helmet-1.png',matched:false},
+  {src: require('./Assests/potion-1.png'),link:'./Assests/potion-1.png',matched:false},
+  {src: require('./Assests/ring-1.png'),link:'./Assests/ring-1.png',matched:false},
+  {src: require('./Assests/shield-1.png'),link:'./Assests/shield-1.png',matched:false},
+  {src: require('./Assests/sword-1.png'),link:'./Assests/sword-1.png',matched:false},
 ];
 
 const App = () => {
@@ -50,15 +50,25 @@ const App = () => {
 
    useEffect(() => {
       if (choiceOne && choiceTwo) { if (choiceOne?.link === choiceTwo?.link){
+          setCards((prevCards => {
+            return prevCards.map(card =>{
+              if (card.link === choiceTwo.link){
+                return {...card , matched:true};
+              } else {
+                return card;
+              }
+            });
+          }));
           console.log('they matched main',choiceOne?.link,choiceTwo?.link ,countturns);
           restTurn();
         } else {
           console.log('they dont matched else',choiceOne?.link,choiceTwo?.link);
           restTurn();
         }}
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [choiceOne,choiceTwo]);
 
-
+   console.log(cards);
 
   const isTrue = startGame;
   return (

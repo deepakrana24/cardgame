@@ -1,4 +1,4 @@
-import {View, StyleSheet, Image ,TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const SingleCard = props => {
