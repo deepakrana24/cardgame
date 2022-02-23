@@ -1,5 +1,4 @@
 const cardImage = [
-  {src: require('./Assests/cover.png')},
   {src: require('./Assests/helmet-1.png')},
   {src: require('./Assests/potion-1.png')},
   {src: require('./Assests/ring-1.png')},
